@@ -250,4 +250,8 @@ All API endpoints return a standardized JSON response:
 Test all endpoints using Postman or any API testing tool. Ensure to:
 1. First register a user
 2. Login to get the JWT token
-3. Use the token in the Authorization header for protected routes
+3. Use the token in the Token header for protected routes
+
+---
+
+Made with ❤️ by Aadil
