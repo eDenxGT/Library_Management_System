@@ -6,7 +6,6 @@ A robust, production-ready RESTful API for managing library operations. Built wi
 
 - 🔐 **Secure Authentication**
   - JWT-based authentication
-  - Protected routes with role-based access
   - Secure password hashing with bcrypt
 
 - 📖 **Book Management**
@@ -16,8 +15,8 @@ A robust, production-ready RESTful API for managing library operations. Built wi
 
 - 🛠 **Technical Highlights**
   - TypeScript for type safety
-  - Clean architecture with separation of concerns
-  - Request validation using Express Validator
+  - MVC architecture with separation of concerns
+  - Request validation using Zod
   - Comprehensive error handling
   - API rate limiting
   - Environment-based configuration
@@ -77,13 +76,13 @@ JWT_SECRET=your_jwt_secret_here
 
 ### Base URL
 ```
-http://localhost:5000/api
+http://localhost:3000/api
 ```
 
 ### Authentication
 All protected routes require JWT authentication. Include the token in the request header:
 ```
-Authorization: Bearer <your_jwt_token>
+Token: <your_jwt_token>
 ```
 
 ## Endpoints
@@ -183,7 +182,7 @@ Authorization: Bearer <your_jwt_token>
 
 - **Example Request**:
   ```
-  GET /books?genre=Programming&author=Martin&minYear=2000&available=true&limit=5&offset=10
+  GET /books?genre=sports&author=test%20name%202&minYear=2023&available=true&limit=10&offset=0
   ```
 
 - **Success Response**:
