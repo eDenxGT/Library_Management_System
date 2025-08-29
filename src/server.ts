@@ -28,10 +28,10 @@ app.use(
   })
 );
 
-//  cors
-app.use(cors());
+//  cors (keep origin as client url for production)
+app.use(cors({ origin: "*" }));
 
-//  security for headers
+//  security for headers (protects against some well-known attacks)
 app.use(helmet());
 
 //  routes
