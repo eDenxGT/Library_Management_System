@@ -8,6 +8,7 @@ import {
 
 const router = express.Router();
 
+//  book routes
 router
   .route("/")
   .post(authMiddleware, createBook)

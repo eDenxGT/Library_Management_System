@@ -6,6 +6,7 @@ export interface CustomRequest extends Request {
   user: CustomJwtPayload;
 }
 
+//  auth middleware
 export const authMiddleware = (
   req: Request,
   res: Response,

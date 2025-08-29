@@ -3,6 +3,7 @@ import Book, { IBook } from "../models/book.model";
 import { AppError } from "../utils/app.error";
 import { CreateBookDTO, GetBooksQueryDto } from "../validators/book.validator";
 
+//  create book service
 export const createBookService = async (data: CreateBookDTO) => {
   const book = await Book.create({
     title: data.title,
@@ -14,6 +15,7 @@ export const createBookService = async (data: CreateBookDTO) => {
   return book;
 };
 
+//  get books service
 export const getBooksService = async (
   query: GetBooksQueryDto
 ): Promise<{ books: IBook[]; total: number }> => {
@@ -30,6 +32,7 @@ export const getBooksService = async (
   return { books, total };
 };
 
+//  checkout book service
 export const checkoutBookService = async (bookId: string): Promise<IBook> => {
   const book = await Book.findById(bookId);
   if (!book) {

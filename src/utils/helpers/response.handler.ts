@@ -2,6 +2,7 @@ import { ZodError } from "zod";
 import { Response } from "express";
 import { AppError } from "../app.error";
 
+//  zod error handler
 export const handleZodError = (err: ZodError) => {
   return err.issues.reduce((acc, e) => {
     acc[e.path.join(".")] = e.message;
@@ -9,6 +10,7 @@ export const handleZodError = (err: ZodError) => {
   }, {} as Record<string, string>);
 };
 
+//  error response handler
 export const handleErrorResponse = (err: unknown, res: Response) => {
   if (err instanceof ZodError) {
     return res.status(400).json({
@@ -30,6 +32,7 @@ export const handleErrorResponse = (err: unknown, res: Response) => {
   });
 };
 
+//  success response handler
 export const handleSuccessResponse = (
   res: Response,
   message: string,

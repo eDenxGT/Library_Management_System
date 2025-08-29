@@ -11,11 +11,14 @@ dotenv.config();
 
 const app = express();
 
+//  database connection
 connectDB(config.DATABASE.URI);
 
+//  middleware
 app.use(express.json());
 app.use(morgan("dev"));
 
+//  rate limiting
 app.use(
   expressRateLimit({
     windowMs: 15 * 60 * 1000,
@@ -23,13 +26,16 @@ app.use(
   })
 );
 
+//  routes
 app.use("/api/auth", authRouter);
 app.use("/api/books", bookRouter);
 
+//  error handling
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
 });
 
+//  server startup
 app.listen(config.SERVER.PORT, () => {
   console.log(`Server is running on port ${config.SERVER.PORT}`);
 });

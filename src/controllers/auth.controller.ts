@@ -4,6 +4,7 @@ import { handleErrorResponse, handleSuccessResponse } from "../utils/helpers/res
 import { loginService, registerService } from "../services/auth.service";
 import { HTTP_STATUS, SUCCESS_MESSAGES } from "../config/constants";
 
+//  register controller
 export const register = async (req: Request, res: Response) => {
   try {
     const data = registerSchema.parse(req.body);
@@ -16,6 +17,7 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
+//  login controller
 export const login = async (req: Request, res: Response) => {
   try {
     const data = loginSchema.parse(req.body);
