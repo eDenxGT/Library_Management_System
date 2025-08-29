@@ -6,6 +6,8 @@ import morgan from "morgan";
 import authRouter from "./routes/auth.routes";
 import bookRouter from "./routes/book.routes";
 import expressRateLimit from "express-rate-limit";
+import cors from "cors";
+import helmet from "helmet";
 
 dotenv.config();
 
@@ -25,6 +27,12 @@ app.use(
     max: 100,
   })
 );
+
+//  cors
+app.use(cors());
+
+//  security for headers
+app.use(helmet());
 
 //  routes
 app.use("/api/auth", authRouter);
