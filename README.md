@@ -1,6 +1,26 @@
-# Library Management System API
+# 📚 Library Management System API
 
-A RESTful API for managing books in a library system with JWT authentication, built with **Node.js**, **Express**, **MongoDB**, and **TypeScript**. This project was developed as an interview task, focusing on clean code structure, proper validation, and error handling.
+A robust, production-ready RESTful API for managing library operations. Built with Node.js, Express, TypeScript, and MongoDB, this API provides secure user authentication and comprehensive book management features.
+
+## ✨ Features
+
+- 🔐 **Secure Authentication**
+  - JWT-based authentication
+  - Protected routes with role-based access
+  - Secure password hashing with bcrypt
+
+- 📖 **Book Management**
+  - Add new books with detailed information
+  - Search and filter books by various criteria
+  - Checkout system with stock management
+
+- 🛠 **Technical Highlights**
+  - TypeScript for type safety
+  - Clean architecture with separation of concerns
+  - Request validation using Express Validator
+  - Comprehensive error handling
+  - API rate limiting
+  - Environment-based configuration
 
 ## Table of Contents
 - [Requirements](#requirements)
@@ -14,10 +34,10 @@ A RESTful API for managing books in a library system with JWT authentication, bu
   - [Base URL](#base-url)
   - [Authentication](#authentication)
   - [Endpoints](#endpoints)
-    - [Authentication](#authentication-endpoints)
+    - [Authentication Endpoints](#authentication-endpoints)
       - [Register User](#register-user)
       - [User Login](#user-login)
-    - [Books](#book-endpoints)
+    - [Books](#books)
       - [Create Book](#create-book)
       - [Get All Books](#get-all-books)
       - [Checkout Book](#checkout-book)
@@ -25,38 +45,11 @@ A RESTful API for managing books in a library system with JWT authentication, bu
 - [Testing](#testing)
 - [Submission](#submission)
 
-## Requirements
-
-### 1. Authentication Module
-- JWT-based authentication
-- User registration and login endpoints
-- Input validation for user credentials
-
-### 2. Book Management Module
-- Create books with validation
-- Retrieve books with filtering and pagination
-- Book checkout functionality with stock validation
-
-### 3. Technical Requirements
-- Express.js framework
-- MongoDB with Mongoose
-- Middleware for authentication, validation, and error handling
-- Clean, modular code structure
-- Basic logging
-
-## Technologies Used
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT (JSON Web Tokens)
-- **Language**: TypeScript
-- **Validation**: Built-in validation with Express Validator
-- **Logging**: Winston or Morgan
-
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or later)
+- Node.js (v16 or later)
+- MongoDB (local or cloud instance)
 - npm or yarn
 - MongoDB instance (local or remote)
 
@@ -259,10 +252,3 @@ Test all endpoints using Postman or any API testing tool. Ensure to:
 1. First register a user
 2. Login to get the JWT token
 3. Use the token in the Authorization header for protected routes
-
-## Submission
-Please submit your solution by sharing the repository URL with the following email addresses:
-- ananthu.askeva@gmail.com
-- productmanager@tunepath.com
-- hr@tunepath.com
-
