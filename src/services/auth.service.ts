@@ -6,6 +6,12 @@ import { ERROR_MESSAGES, HTTP_STATUS } from "../config/constants";
 import { IUserRegisterResponse } from "../types/user.types";
 import { generateToken } from "../utils/helpers/jwt.helper";
 
+/**
+ * Registers a new user.
+ *
+ * @param data - User data to register
+ * @returns The registered user
+ */
 export const registerService = async (data: RegisterDTO) => {
   const { username, email, password } = data;
   const userExists = await User.findOne({ email });
@@ -28,6 +34,12 @@ export const registerService = async (data: RegisterDTO) => {
   return;
 };
 
+/**
+ * Logs in a user.
+ *
+ * @param data - User login data
+ * @returns The logged-in user
+ */
 export const loginService = async (data: LoginDTO): Promise<IUserRegisterResponse> => {
   const { email, password } = data;
 

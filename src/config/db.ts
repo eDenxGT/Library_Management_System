@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
-//  database connection
+/**
+ * Connects to the database.
+ * @param dbUri - The database URI.
+ */
 export const connectDB = async (dbUri: string) => {
   try {
     await mongoose.connect(dbUri);

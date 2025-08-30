@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-//  register body parameters validation
+//  register body parameters validation schema
 export const registerSchema = z.object({
   username: z
     .string()
@@ -10,7 +10,7 @@ export const registerSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
-//  login body parameters validation
+//  login body parameters validation schema
 export const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6, "Password must be at least 6 characters long"),

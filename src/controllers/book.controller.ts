@@ -19,7 +19,11 @@ import {
 } from "../config/constants";
 import { AppError } from "../utils/app.error";
 
-//  create book controller
+/**
+ * Create a new book.
+ * @param req - The request object.
+ * @param res - The response object.
+ */
 export const createBook = async (req: Request, res: Response) => {
   try {
     const data = createBookSchema.parse(req.body);
@@ -39,7 +43,11 @@ export const createBook = async (req: Request, res: Response) => {
   }
 };
 
-//  get books controller
+/**
+ * Get all books.
+ * @param req - The request object.
+ * @param res - The response object.
+ */
 export const getBooks = async (req: Request, res: Response) => {
   try {
     const query = getBooksQuerySchema.parse(req.query);
@@ -54,7 +62,11 @@ export const getBooks = async (req: Request, res: Response) => {
   }
 };
 
-//  checkout book controller
+/**
+ * Checkout a book.
+ * @param req - The request object.
+ * @param res - The response object.
+ */
 export const checkoutBook = async (req: Request, res: Response) => {
   try {
     const bookId = req.params.id;

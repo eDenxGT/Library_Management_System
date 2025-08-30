@@ -1,3 +1,6 @@
+/**
+ * Configuration object for the application.
+ */
 export const config = {
   SERVER: {
     PORT: process.env.PORT || 3000,

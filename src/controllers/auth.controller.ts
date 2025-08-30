@@ -1,10 +1,17 @@
 import { Request, Response } from "express";
 import { loginSchema, registerSchema } from "../validators/auth.validator";
-import { handleErrorResponse, handleSuccessResponse } from "../utils/helpers/response.handler";
+import {
+  handleErrorResponse,
+  handleSuccessResponse,
+} from "../utils/helpers/response.handler";
 import { loginService, registerService } from "../services/auth.service";
 import { HTTP_STATUS, SUCCESS_MESSAGES } from "../config/constants";
 
-//  register controller
+/**
+ * Register a new user.
+ * @param req - The request object.
+ * @param res - The response object.
+ */
 export const register = async (req: Request, res: Response) => {
   try {
     const data = registerSchema.parse(req.body);
@@ -17,14 +24,20 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-//  login controller
+/**
+ * Log in a user.
+ * @param req - The request object.
+ * @param res - The response object.
+ */
 export const login = async (req: Request, res: Response) => {
   try {
     const data = loginSchema.parse(req.body);
 
     const user = await loginService(data);
 
-    handleSuccessResponse(res, SUCCESS_MESSAGES.LOGIN, HTTP_STATUS.OK, { user });
+    handleSuccessResponse(res, SUCCESS_MESSAGES.LOGIN, HTTP_STATUS.OK, {
+      user,
+    });
   } catch (error) {
     handleErrorResponse(error, res);
   }

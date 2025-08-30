@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-//  create book body parameters validation
+//  create book body parameters validation schema
 export const createBookSchema = z.object({
   title: z.string({ error: "Title is required" }),
   author: z.string({ error: "Author is required" }),
@@ -17,7 +17,7 @@ export const createBookSchema = z.object({
     .positive({ message: "Stock must be positive" }),
 });
 
-//  get books query parameters validation
+//  get books query parameters validation schema
 export const getBooksQuerySchema = z.object({
   genre: z.string().optional(),
   author: z.string().optional(),

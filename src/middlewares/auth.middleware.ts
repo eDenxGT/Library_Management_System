@@ -6,7 +6,12 @@ export interface CustomRequest extends Request {
   user: CustomJwtPayload;
 }
 
-//  auth middleware
+/**
+ * Middleware to authenticate requests.
+ * @param req - The request object.
+ * @param res - The response object.
+ * @param next - The next middleware function.
+ */
 export const authMiddleware = (
   req: Request,
   res: Response,
