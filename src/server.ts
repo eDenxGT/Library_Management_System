@@ -20,7 +20,10 @@ connectDB(config.DATABASE.URI);
 app.use(express.json());
 app.use(morgan("dev"));
 
-//  rate limiting
+/**
+ * Rate limiting (to prevent abuse)
+ * (below configuration limits are set to 100 requests per 15 minutes)
+ */
 app.use(
   expressRateLimit({
     windowMs: 15 * 60 * 1000,
@@ -28,7 +31,10 @@ app.use(
   })
 );
 
-//  cors (keep origin as client url for production)
+/**
+ * CORS Policy setting
+ * (to allow requests from different origins)
+ */
 app.use(cors({ origin: "*" }));
 
 //  security for headers (protects against some well-known attacks)
@@ -38,7 +44,10 @@ app.use(helmet());
 app.use("/api/auth", authRouter);
 app.use("/api/books", bookRouter);
 
-//  error handling
+/**
+ * Error handling middleware.
+ * (to handle unknown routes)
+ */
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
 });
