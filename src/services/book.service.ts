@@ -38,7 +38,7 @@ export const createBookService = async (data: CreateBookDTO) => {
  */
 export const getBooksService = async (
   query: GetBooksQueryDto
-): Promise<{ books: IBook[]; total: number }> => {
+): Promise<IBook[]> => {
   const filter: { [key: string]: any } = {};
   if (query.genre) filter.genre = query.genre;
   if (query.author) filter.author = query.author;
@@ -47,9 +47,14 @@ export const getBooksService = async (
 
   const books = await Book.find(filter).skip(query.offset).limit(query.limit);
 
-  const total = await Book.countDocuments(filter);
+  if (books.length === 0) {
+    throw new AppError(
+      ERROR_MESSAGES.BOOK_NOT_FOUND,
+      HTTP_STATUS.BAD_REQUEST
+    );
+  }
 
-  return { books, total };
+  return books;
 };
 
 /**
@@ -64,7 +69,10 @@ export const checkoutBookService = async (bookId: string): Promise<IBook> => {
     throw new AppError(ERROR_MESSAGES.BOOK_NOT_FOUND, HTTP_STATUS.NOT_FOUND);
   }
   if (book.stock <= 0) {
-    throw new AppError(ERROR_MESSAGES.INVALID_STOCK, HTTP_STATUS.NOT_FOUND);
+    throw new AppError(
+      ERROR_MESSAGES.BOOKS_OUT_OF_STOCK,
+      HTTP_STATUS.BAD_REQUEST
+    );
   }
 
   book.stock -= 1;

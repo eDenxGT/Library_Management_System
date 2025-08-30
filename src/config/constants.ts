@@ -22,6 +22,7 @@ export const ERROR_MESSAGES = {
   INVALID_BOOK_ID: "Invalid book ID",
   BOOK_NOT_FOUND: "Book not found",
   INVALID_STOCK: "Invalid stock",
+  BOOKS_OUT_OF_STOCK: "Books out of stock",
 };
 
 /**

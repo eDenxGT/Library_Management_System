@@ -55,7 +55,7 @@ export const getBooks = async (req: Request, res: Response) => {
     const data = await getBooksService(query);
 
     handleSuccessResponse(res, SUCCESS_MESSAGES.GET_BOOKS, HTTP_STATUS.OK, {
-      data,
+      ...data,
     });
   } catch (error) {
     handleErrorResponse(error, res);
